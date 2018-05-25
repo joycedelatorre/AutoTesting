@@ -14,8 +14,12 @@ driver.findElement(By.name('q')).sendKeys('little mamas filipino food austin');
 driver.findElement(By.name('q')).sendKeys(webdriver.Key.TAB);
 // });
 
- driver.findElement(By.name('btnK')).click();
+driver.findElement(By.name('btnK')).click();
 
+driver.sleep(5000).then(function(){
+  driver.findElement(By.linkText('Website')).click();
+  
+});
 // driver.sleep(2000).then(function() {
 //   driver.getTitle().then(function(title) {
 //     if(title === 'webdriver - Google Search') {
