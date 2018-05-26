@@ -1,4 +1,4 @@
-var extend = require('selenium-extend');
+// var extend = require('selenium-extend');
 var webdriver = require('selenium-webdriver'),
     By = webdriver.By,
     until = webdriver.until;
@@ -7,17 +7,17 @@ var driver = new webdriver.Builder()
     .forBrowser('firefox')
     .build();
 
-extend.addExtend(driver);
+// extend.addExtend(driver);
 
 driver.get('https://www.google.com/');
 
 driver.findElement(By.name('q')).sendKeys('little mamas filipino food austin');
 
 
-driver.sleep(5000).then(function() {
-  driver.findElement(By.name('q')).sendKeys(webdriver.Key.TAB);
-  // driver.extend.doubleClick('#btnK');
-});
+// driver.sleep(5000).then(function() {
+//   driver.findElement(By.name('q')).sendKeys(webdriver.Key.TAB);
+//   // driver.extend.doubleClick('#btnK');
+// });
 
 // driver.sleep(5000).then(function(){
 
@@ -30,14 +30,26 @@ driver.sleep(5000).then(function(){
       driver.findElement(By.linkText('About')).click();
 
 
-      driver.sleep(5000).then(function(){
-      //   driver.extend.getText('_2iem');
-          var address = driver.findElement(By.class("span[class='_2iem']"));
-          for(var i = 0; i < address.length; i ++){
-            console.log(driver.getText(address[i]));
-            
-          }
+  driver.sleep(7000).then(function(){
+
+
+     driver.findElements(By.className("_50f4")).then(function(elements){
+      elements.forEach(function(element){
+        element.getText().then(function(text){
+          console.log(text);
+        });
       });
+     });
+
+
+
+
+  //     var address = driver.findElement(By.className("_50f4"));
+  //     for(var i = 0; i < address.length; i ++){
+  //       console.log(driver.getText(address[i]));
+        
+  //     }
+    });
   });
 });
 
