@@ -41,7 +41,7 @@ driver.sleep(5000).then(function(){
         //------This logs the phone
         driver.findElement(By.xpath("//*[@class='_4bl9']//descendant::div[@class='_50f4']")).then(function(element){
           element.getText().then(function(phone){
-            console.log(phone);
+            console.log("Phone: " + phone);
           })
         });
 
@@ -72,7 +72,7 @@ driver.sleep(5000).then(function(){
             driver.sleep(3000).then(function(){
               driver.findElement(By.xpath("//*[@id='u_jsonp_2_2']//child::div[@class='_4bl7']")).then(function(element){
                   element.getText().then(function(hours){
-                    console.log(hours);
+                    console.log("Hours: " + hours);
                   });
                 });
             });
