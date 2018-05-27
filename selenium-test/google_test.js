@@ -47,14 +47,6 @@ driver.sleep(5000).then(function(){
 
         // logging the address 
         driver.sleep(5000).then(function(){
-            // driver.findElements(By.className("_50f4")).then(function(elements){
-            //   elements.forEach(function(element){
-            //     element.getText().then(function(text){
-            //       console.log(text);
-            //     });
-            //   });
-            // });
-            //------This logs the address
             driver.findElements(By.xpath("//*[@class='_4bl9']//descendant::span[@class='_2iem']")).then(function(elements){
               console.log("Address:");
               elements.forEach(function(element){
@@ -66,12 +58,36 @@ driver.sleep(5000).then(function(){
               })
               });
             });
-        });
+
+            // driver.sleep(3000).then(function(){
+            //   driver.findElements(By.xpath("//div[@class='_4bl7']")).then(function(elements){
+            //     elements.forEach(function(element){
+            //       element.getText().then(function(hours){
+            //           console.log(hours);
+            //       });
+            //     })
+            //   })
+            // });
+
+            driver.sleep(3000).then(function(){
+              driver.findElement(By.xpath("//*[@id='u_jsonp_2_2']//child::div[@class='_4bl7']")).then(function(element){
+                  element.getText().then(function(hours){
+                    console.log(hours);
+                  });
+                });
+            });
+
+
+
+
+        }); //EOL line 49 
 
     });
 
   });
 });
+
+// _4bl7 class for hours
 
 
 // driver.findElement(By.class("span[class='_2iem']")).getText().then(function(text){
