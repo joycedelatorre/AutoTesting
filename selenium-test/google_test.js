@@ -26,30 +26,50 @@ driver.findElement(By.name('q')).sendKeys('little mamas filipino food austin');
 
 driver.sleep(5000).then(function(){
   driver.findElement(By.linkText('Website')).click(); 
-  driver.sleep(5000).then(function(){
+  driver.sleep(6000).then(function(){
       driver.findElement(By.linkText('About')).click();
 
 
-  driver.sleep(7000).then(function(){
-
-
-     driver.findElements(By.className("_50f4")).then(function(elements){
-      elements.forEach(function(element){
-        element.getText().then(function(text){
-          console.log(text);
+    driver.sleep(10000).then(function(){
+        // driver.findElements(By.className("_50f4")).then(function(elements){
+        //   elements.forEach(function(element){
+        //     element.getText().then(function(text){
+        //       console.log(text);
+        //     });
+        //   });
+        // });
+        //------This logs the phone
+        driver.findElement(By.xpath("//*[@class='_4bl9']//descendant::div[@class='_50f4']")).then(function(element){
+          element.getText().then(function(phone){
+            console.log(phone);
+          })
         });
-      });
-     });
 
+        // logging the address 
+        driver.sleep(5000).then(function(){
+            // driver.findElements(By.className("_50f4")).then(function(elements){
+            //   elements.forEach(function(element){
+            //     element.getText().then(function(text){
+            //       console.log(text);
+            //     });
+            //   });
+            // });
+            //------This logs the address
+            driver.findElements(By.xpath("//*[@class='_4bl9']//descendant::span[@class='_2iem']")).then(function(elements){
+              console.log("Address:");
+              elements.forEach(function(element){
+                element.getText().then(function(address){
+                // console.log(address);
+                if (address[0] != "@"){
+                  console.log(address);
+                }
+              })
+              });
+            });
+        });
 
-
-
-  //     var address = driver.findElement(By.className("_50f4"));
-  //     for(var i = 0; i < address.length; i ++){
-  //       console.log(driver.getText(address[i]));
-        
-  //     }
     });
+
   });
 });
 
