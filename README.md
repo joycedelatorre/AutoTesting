@@ -14,6 +14,7 @@ Then from the “About” section of the page extract the Address, Phone, and Ho
 Extra: See if you can export the image at the top of the page to a file
 
 
+#### These are the packages I used:
 
 1. installed gecko driver
 2. npm install selenium-webdriver
