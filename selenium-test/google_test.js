@@ -17,6 +17,7 @@ driver.findElement(By.name('q')).sendKeys('little mamas filipino food austin');
 driver.findElement(By.name('btnK')).click();
 
 driver.sleep(5000).then(function(){
+  //Reference: https://stackoverflow.com/questions/33559296/how-to-click-a-link-by-text-in-selenium-web-driver-java
   driver.findElement(By.linkText('Website')).click(); 
 
   driver.sleep(6000).then(function(){
