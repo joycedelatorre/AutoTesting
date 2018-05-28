@@ -26,9 +26,9 @@ driver.get('https://www.google.com/');
 
 driver.sleep(5000).then(function(){
   driver.findElement(By.linkText('Website')).click(); 
+
   driver.sleep(6000).then(function(){
     driver.findElement(By.linkText('About')).click();
-
 
     driver.sleep(10000).then(function(){
         //------This logs the phone
@@ -65,7 +65,6 @@ driver.sleep(5000).then(function(){
                   });
                 });
               //logging image
-              //Downloading image Reference: https://stackoverflow.com/questions/12740659/downloading-images-with-node-js
               driver.findElement(By.xpath("//img[@src='https://scontent-dfw5-2.xx.fbcdn.net/v/t1.0-9/10404436_877418918975495_7884373613217558080_n.jpg?_nc_cat=0&oh=10b193a379dfd2089515d9efc9b05cad&oe=5B76A264']")).then(function(element){
                   element.getAttribute("src").then(function(src){
                     download(src, 'logo.png',function(){
@@ -82,6 +81,7 @@ driver.sleep(5000).then(function(){
 });
 
 
+//Downloading image Reference: https://stackoverflow.com/questions/12740659/downloading-images-with-node-js
 var download = function(uri, filename, callback){
   request.head(uri, function(err, res, body){
     console.log('content-type:', res.headers['content-type']);
@@ -91,7 +91,7 @@ var download = function(uri, filename, callback){
   });
 };
 
-
+//Reference for npm fs: https://www.w3schools.com/nodejs/nodejs_filesystem.asp
 function writeToFile (data){
   // If the file didn't exist then it gets created on the fly.
   fs.appendFile("data_info", data, function(err){
@@ -104,8 +104,6 @@ function writeToFile (data){
 }
 
 //----------------------------------
-
-
 // driver.sleep(2000).then(function() {
 //   driver.getTitle().then(function(title) {
 //     if(title === 'webdriver - Google Search') {
