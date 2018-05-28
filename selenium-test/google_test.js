@@ -12,17 +12,9 @@ var driver = new webdriver.Builder()
 
 driver.get('https://www.google.com/');
 
+driver.findElement(By.name('q')).sendKeys('little mamas filipino food austin');
 
-
-// driver.sleep(3000).then(function() {
-  driver.findElement(By.name('q')).sendKeys('little mamas filipino food austin');
-//   driver.findElement(By.name('q')).sendKeys(webdriver.Key.TAB);
-//   // driver.extend.doubleClick('#btnK');
-// });
-
-// driver.sleep(5000).then(f/unction(){
-  driver.findElement(By.name('btnK')).click();
-// });
+driver.findElement(By.name('btnK')).click();
 
 driver.sleep(5000).then(function(){
   driver.findElement(By.linkText('Website')).click(); 
