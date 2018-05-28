@@ -1,8 +1,10 @@
+// We grab the fs package to handle read/write
 var fs = require("fs");
 var request = require('request');
 var webdriver = require('selenium-webdriver'),
     By = webdriver.By,
     until = webdriver.until;
+var data_info;
 
 var driver = new webdriver.Builder()
     .forBrowser('firefox')
@@ -34,6 +36,7 @@ driver.sleep(5000).then(function(){
         driver.findElement(By.xpath("//*[@class='_4bl9']//descendant::div[@class='_50f4']")).then(function(element){
           element.getText().then(function(phone){
             console.log("Phone: " + phone);
+            writeToFile(phone + ", ");
 
           })
         });
@@ -47,6 +50,7 @@ driver.sleep(5000).then(function(){
                 // console.log(address);
                 if (address[0] != "@"){
                   console.log(address);
+                  writeToFile(address + ", ");
                 }
               })
               });
@@ -57,6 +61,7 @@ driver.sleep(5000).then(function(){
               driver.findElement(By.xpath("//*[@id='u_jsonp_2_2']//child::div[@class='_4bl7']")).then(function(element){
                   element.getText().then(function(hours){
                     console.log("Hours: " + hours);
+                    writeToFile(hours +", ");
                   });
                 });
               //logging image
@@ -86,7 +91,17 @@ var download = function(uri, filename, callback){
   });
 };
 
-// var writeToText = function()
+
+function writeToFile (data){
+  // If the file didn't exist then it gets created on the fly.
+  fs.appendFile("data_info", data, function(err){
+    if(err){
+      console.log(err);
+    } else {
+      console.log("content added");
+    }
+  });
+}
 
 //----------------------------------
 
@@ -103,26 +118,3 @@ var download = function(uri, filename, callback){
 
 // driver.quit();
 
-
-//Append file
-// As always, we grab the fs package to handle read/write
-// var fs = require("fs");
-
-// // We then store the textfile filename given to us from the command line
-// var textFile = process.argv[2];
-
-// // We then append the contents "Hello Kitty" into the file
-// // If the file didn't exist then it gets created on the fly.
-// fs.appendFile(textFile, "Hello Kitty", function(err) {
-
-//   // If an error was experienced we say it.
-//   if (err) {
-//     console.log(err);
-//   }
-
-//   // If no error is experienced, we'll log the phrase "Content Added" to our node console.
-//   else {
-//     console.log("Content Added!");
-//   }
-
-// });
