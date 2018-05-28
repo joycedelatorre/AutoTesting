@@ -2,11 +2,12 @@
 ### using node &amp; selenium 
 
 #### Instructions:
-The task is to drive www.google.com and search for “little mamas filipino food austin” (I eat there so I know it’s good!:) )
+
+The task is to drive www.google.com and search for “little mamas filipino food austin”
 
 On the results page you should see the restaurant
 
-Click the “Website” button (with the automated test!)
+Click the “Website” button
 
 Then from the “About” section of the page extract the Address, Phone, and Hours and present them in a little report (could export to xls, csv, or anything)
 
@@ -28,6 +29,6 @@ Extra: See if you can export the image at the top of the page to a file
 
 
 ##### Downloaded image:
-![downloadedImage](![txtfile](https://github.com/joycedelatorre/AutoTesting/blob/master/selenium-test/readMe_image/data.png "downloadedImage")
+![downloadedImage](https://github.com/joycedelatorre/AutoTesting/blob/master/selenium-test/readMe_image/logo.png "downloadedImage")
 
 
